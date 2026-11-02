@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Jev",
+    "description": "Runs the Jev MCP server so the agent can ask typed questions (verify, screen, find, review, gate). Provider keys are stored in DSH credentials. Jev is not a chat model."
+  }
+}

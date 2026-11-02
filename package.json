@@ -1,0 +1,87 @@
+{
+  "name": "dsh-jev-mcp",
+  "version": "0.2.0",
+  "description": "Run the Jev MCP server inside DeepSeek Harness. Typed judgment tools (verify, screen, find, review, gate, and the rest) register as mcp__jev__*. Provider keys stay in DSH credentials. Jev is not a chat model.",
+  "license": "MIT",
+  "author": "NingYuanLee <liyunningyuan@outlook.com>",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./client": "./lib/client.js"
+  },
+  "files": [
+    "src",
+    "lib/client.js",
+    "skills",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "LICENSE",
+    "THIRD_PARTY_LICENSES.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "README*.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/index.js && node --check src/launch.js && node --check src/skill.js && node --check lib/client.js",
+    "check:pack": "node scripts/check-pack.mjs",
+    "prepublishOnly": "npm test && npm run check && npm run check:pack"
+  },
+  "engines": {
+    "node": ">=22.19.0",
+    "dsh": ">=0.2.1-rc.2 <0.3.0-0"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NingYuanLee/dsh-jev-mcp.git"
+  },
+  "homepage": "https://github.com/NingYuanLee/dsh-jev-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/NingYuanLee/dsh-jev-mcp/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "cordis",
+    "jev",
+    "typesafe",
+    "mcp",
+    "system-one"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "tag": "latest"
+  },
+  "icon": "./icon.svg",
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-plugin-manager",
+        "@deepseek-ai/dsh-api-settings-controller"
+      ],
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "@jkudish/jev-mcp": "0.14.7"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.4",
+    "@deepseek-ai/dsh-credentials": ">=0.2.1-0 <0.3.0",
+    "@deepseek-ai/dsh-mcp-client": ">=0.2.1-0 <0.3.0",
+    "@deepseek-ai/schemastery": "~3.18.4"
+  }
+}
