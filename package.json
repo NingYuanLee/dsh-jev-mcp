@@ -1,6 +1,6 @@
 {
   "name": "dsh-jev-mcp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Run the Jev MCP server inside DeepSeek Harness. Typed judgment tools (verify, screen, find, review, gate, and the rest) register as mcp__jev__*. Provider keys stay in DSH credentials. Jev is not a chat model.",
   "license": "MIT",
   "author": "NingYuanLee <liyunningyuan@outlook.com>",
@@ -79,9 +79,9 @@
     "@jkudish/jev-mcp": "0.14.7"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "~4.0.4",
-    "@deepseek-ai/dsh-credentials": ">=0.2.1-0 <0.3.0",
-    "@deepseek-ai/dsh-mcp-client": ">=0.2.1-0 <0.3.0",
-    "@deepseek-ai/schemastery": "~3.18.4"
+    "@deepseek-ai/cordis": ">=4.0.4 <5.0.0",
+    "@deepseek-ai/dsh-credentials": ">=0.2.1-0 <0.3.0-0 || >=0.2.2-0 <0.3.0-0",
+    "@deepseek-ai/dsh-mcp-client": ">=0.2.1-0 <0.3.0-0 || >=0.2.2-0 <0.3.0-0",
+    "@deepseek-ai/schemastery": ">=3.18.4 <4.0.0"
   }
 }
